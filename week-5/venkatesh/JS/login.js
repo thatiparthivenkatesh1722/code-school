@@ -1,16 +1,14 @@
 $(document).ready(function () {
-
   let token = localStorage.getItem("token");
-  if(token){
-    window.location.href = "dashboard.html"
+  if (token) {
+    window.location.href = "dashboard.html";
   }
 
   $("#username, #password").on("input", function () {
-        $(this).removeClass("is-invalid");
-    });
+    $(this).removeClass("is-invalid");
+  });
 
   $("#loginBtn").click(function () {
-
     let username = $("#username");
     let password = $("#password");
 
@@ -20,7 +18,6 @@ $(document).ready(function () {
     let isUserValid = validateField(username, userError, 4, 12, "Username");
     let isPassValid = validateField(password, passError, 6, 16, "Password");
 
-    
     if (isUserValid && isPassValid) {
       $("#btnSpinner").removeClass("d-none");
 
@@ -36,33 +33,40 @@ $(document).ready(function () {
         success: function (res) {
           console.log("success", res);
           let token = res.accessToken || res.token;
-          if(token){
-              localStorage.setItem("token", token);
-              localStorage.setItem("user", JSON.stringify(res))
-              alert("Login successful");
+          if (token) {
+            localStorage.setItem("token", token);
+            localStorage.setItem("user", JSON.stringify(res));
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Login successful!",
+            }).then(()=>{
               window.location.href = "dashboard.html";
-          }
-          else{
-            alert("token not found")
+
+            })
+          } else {
+            alert("token not found");
           }
         },
 
         error: function (err) {
           console.log("error", err);
-          alert("Invalid credentials");
+          Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Invalid credentials!",
+            })
         },
 
         complete: function () {
           $("#btnText").text("Login");
           $("#btnSpinner").addClass("d-none");
-        }
+        },
       });
     }
   });
-
 });
 function validateField(input, errorElement, min, max, fieldName) {
-
   let value = input.val().trim();
 
   if (value === "") {
