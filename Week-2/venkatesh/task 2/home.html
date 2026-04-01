@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Starbucks Coffee</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      .nav-link {
+        color: black;
+      }
+
+      .nav-link:hover {
+        color: #00754a;
+      }
+
+      .location:hover {
+        color: #00754a;
+        cursor: pointer;
+      }
+
+      /* banner */
+
+      .order-banner {
+        background: #32462f;
+        color: white;
+        padding: 15px 0;
+      }
+
+      .banner-text {
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .order-btn {
+        border: 2px solid white;
+        color: white;
+        padding: 8px 22px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .order-btn:hover {
+        background: white;
+        color: #32462f;
+      }
+
+      /* cards */
+
+      .card {
+        background-color: #236041 !important;
+      }
+
+      .card-body {
+        padding: 40px 20px;
+      }
+
+      .card-btn {
+        margin-top: 15px;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* footer */
+
+      .footer-link {
+        text-decoration: none;
+        color: #555;
+      }
+
+      .footer-link:hover {
+        color: #000;
+      }
+
+      .footer-link-dark {
+        text-decoration: none;
+        color: #000;
+      }
+
+	  .footer-link-dark:hover {
+		color: black !important;
+	  }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img src="./images/Starbucks_Corporation_Logo_2011.svg" width="40" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav me-auto ms-lg-4 fw-bold">
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">MENU</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="rewards.html">REWARDS</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">GIFT CARDS</a>
+            </li>
+          </ul>
+
+          <div
+            class="d-flex align-items-center gap-3 flex-column flex-lg-row mt-3 mt-lg-0"
+          >
+            <div class="location">
+              <i class="bi bi-geo-alt"></i>
+              <span class="fw-semibold">Find a store</span>
+            </div>
+
+            <a href="signin.html" class="btn btn-outline-success rounded-pill">
+              Sign in
+            </a>
+
+            <a href="joinnow.html" class="btn btn-outline-dark rounded-pill"> Join now </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  
+
+    <div class="container-fluid order-banner">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 text-center"
+      >
+        <h4 class="banner-text">It's a great day for coffee</h4>
+
+        <a href="menu.html" class="btn order-btn"> Start an order </a>
+      </div>
+    </div>
+
+
+    <div class="card border-0 rounded-0 my-5">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-6 order-2 order-md-1">
+          <img
+            class="img-fluid"
+            src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-106802.jpg"
+          />
+        </div>
+
+        <div class="col-md-6 text-white order-1 order-md-2">
+          <div class="card-body text-center p-5">
+            <h3 class="card-title">The new Starbucks® Rewards is here</h3>
+
+            <p class="fw-medium fs-5">
+              Introducing three new status levels, new perks and more ways to
+              earn Stars than ever.
+            </p>
+
+            <a
+              href="#"
+              class="btn bg-white rounded-pill fw-medium"
+              style="color: #236041"
+            >
+              See what it means for you
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="card border-0 rounded-0 my-5">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-6 text-white text-center order-2 order-md-1">
+          <div class="card-body p-5">
+            <h3>Spring starts now</h3>
+
+            <p class="mt-4 fw-medium fs-5">
+              Iced Lavender Cream Matcha and Iced Lavender Cream Chai are back
+              in bloom, joined by the new Iced Ube Coconut Macchiato and more.
+            </p>
+
+            <a
+              href="menu.html"
+              class="btn bg-white rounded-pill fw-medium"
+              style="color: #236041"
+            >
+              See the spring menu
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 order-1 order-md-2">
+          <img
+            class="img-fluid"
+            src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-106840.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="card border-0 rounded-0 my-5">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-6">
+          <img
+            class="img-fluid"
+            src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-106761.jpg"
+          />
+        </div>
+
+        <div class="col-md-6 text-white">
+          <div class="card-body text-center">
+            <h3>Made especially for matcha fans</h3>
+
+            <p class="mt-4 fw-medium fs-6">
+              Show off your love of matcha with new drinkware in every shade of
+              fresh-whisked green.
+            </p>
+
+            <a
+              href="#"
+              class="btn bg-white rounded-pill"
+              style="color: #236041"
+            >
+              Find a store
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="card border-0 rounded-0 my-5" style="background: #f5f1eb !important">
+      <div class="row g-0 align-items-center">
+        <div
+          class="col-md-6 text-center order-2 order-md-1"
+          style="color: #977919"
+        >
+          <div class="card-body ">
+            <h3 class="fw-bolder">Nondairy, No extra</h3>
+
+            <p class="mt-4 fw-medium fs-6">
+              Enjoy your beverage with your choice of nondairy milk—like oat,
+              almond, coconut or soy—for no additional charge.
+            </p>
+
+            <a
+              href="menu.html"
+              class="btn bg-white rounded-pill"
+              style="color: #236041"
+            >
+              Start an order
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 order-1 order-md-2">
+          <img
+            class="img-fluid"
+            src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-106772.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="border-top mt-5 pt-5 pb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <h6 class="fw-semibold mb-3">About Us</h6>
+
+            <ul class="list-unstyled small">
+              <li><a href="#" class="footer-link">Our Company</a></li>
+              <li><a href="#" class="footer-link">Our Coffee</a></li>
+              <li><a href="#" class="footer-link">Stories and News</a></li>
+              <li><a href="#" class="footer-link">Investor Relations</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <h6 class="fw-semibold mb-3">Careers</h6>
+
+            <ul class="list-unstyled small">
+              <li><a href="#" class="footer-link">Culture and Values</a></li>
+              <li><a href="#" class="footer-link">Inclusion</a></li>
+              <li><a href="#" class="footer-link">U.S Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <h6 class="fw-semibold mb-3">Social Impact</h6>
+
+            <ul class="list-unstyled small">
+              <li><a href="#" class="footer-link">Communities</a></li>
+              <li><a href="#" class="footer-link">Foundation</a></li>
+              <li><a href="#" class="footer-link">Sustainability</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <h6 class="fw-semibold mb-3">Order & Pick Up</h6>
+
+            <ul class="list-unstyled small">
+              <li><a href="#" class="footer-link">Order on the App</a></li>
+              <li><a href="#" class="footer-link">Delivery</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="d-flex flex-wrap gap-3 fs-4 mb-4">
+          <i class="bi bi-spotify"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-pinterest"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-youtube"></i>
+          <i class="bi bi-twitter-x"></i>
+        </div>
+
+		 <ul class="list-unstyled small">
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark " style="color: #555;">Privacy Notice</a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark"  style="color: #555;"
+              >Consumer Health Privacy Notice</a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark"  style="color: #555;">Terms of Use</a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark"  style="color: #555;"
+              >Do Not Share My Personal Information</a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark" style="color: #555;">CA Supply Chain Act</a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark" style="color: #555;">Accessibility</a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="footer-link-dark" style="color: #555;">Cookie Preferences</a>
+          </li>
+        </ul>
+
+        <p class="text-muted small">
+          © 2026 Starbucks Coffee Company. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+/* *{
+    margin: 0px;
+    padding: 0px;
+} */
+.header{
+   margin-left: 35%;
+   margin-top: -20px;
+}
+.header h1{
+    font-size: 40px;
+    color: rgb(223, 131, 94);
+    margin-bottom: 0px;
+}
+.header a{
+    display: block;
+    margin-top: 5px;
+    color: royalblue;
+    text-decoration: none;
+    margin-left: 2%;
+}
+.header p{
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 5px;
+    color: royalblue;
+}
+
+.objective p{
+    margin-top: 5px;
+    font-size: large;
+}
+
+.education h2{
+    margin-top: 10px;
+}
+.education table{
+    margin-top: 5px;
+    font-size: large;
+    height: 30vh;
+    width: 50vw;
+}
+.skills ul{
+    margin-top: 5px;
+    font-size: large;
+}
+.project p{
+    margin-top: 5px;
+    font-size: large;
+}
+.achievements p{
+    margin-top: 5px;
+    font-size: large;
+}
+.declaration p{
+    margin-top: 5px;
+    font-size: large;
+}   
+h3{
+    margin-top: 10px;
+}
+h2{
+    color: sandybrown;
+    border-bottom: 4px solid rgb(70, 69, 69);
+}

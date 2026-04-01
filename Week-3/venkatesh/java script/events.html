@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+    <style>
+        .spcl{
+            
+            position: absolute;
+            top: 40%;
+            left: 40%;
+        }
+        #btn{
+            width: 20vw;
+            height: 50px;
+        }
+        #input{
+            width: 15.5vw;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- inline event handlers -->
+    <!-- <div class="spcl">
+        name : <input id="input" type="text"><br><br>
+        <button id="btn" onclick="change()">click me</button>
+    </div>
+    <script>
+        function change(){
+            let letters = "0123456789ABCDEF"
+            let color = "#"
+            for(let i=0; i<6; i++){
+                let r=Math.floor(Math.random()*16);
+                color+=letters[r]
+            }
+            document.body.style.backgroundColor=color
+        }
+    </script> -->
+
+    <!-- using event properties in js -->
+    <!-- <div class="spcl">
+        name : <input id="input" type="text"><br><br>
+        <button id="btn" onclick="change()">click me</button>
+    </div>
+    <!-- <script>
+        //using named functions
+        let btn = document.getElementById("btn")
+        btn.onclick=change;
+        function change(){
+            document.body.style.backgroundColor='pink'
+        }
+    </script> -->
+    <!-- using anonymous functions -->
+    <!-- <script>
+        let btn = document.getElementById("btn")
+        btn.onclick=function(){document.body.style.backgroundColor='green'}
+    </script> --> -->
+
+    <!-- using addEventListener() methods -->
+    <!-- <div class="spcl">
+        name : <input id="input" type="text"><br><br>
+        <button id="btn" onclick="change()">click me</button>
+    </div>
+    <script>
+        let btn = document.getElementById("input")
+        btn.addEventListener('mouseover',change)
+        function change(){
+            btn.style.backgroundColor='yellow'
+        }
+    </script> -->
+</body>
+</html>

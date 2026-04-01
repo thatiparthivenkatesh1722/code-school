@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p class="array"></p> -->
+     <p id="object"></p>
+    <script>
+        // let fruits=['apple', 'banana', 'mango', 'kiwi']
+        // let x=''
+        
+        // for(let i in fruits){
+        //     // document.write(i+'<br>')
+        //     // x+=i+"<br>"
+        //     x+=fruits[i]+"<br>"
+        // }
+        // document.querySelector('.array').innerHTML = x;
+
+        let person={
+            name:"nani",
+            age:22,
+        }, x='';
+        for (let key in person){
+            // x+=key+':'+person[key]+"<br>";
+            x=person['name']
+        }
+        document.getElementById('object').innerHTML = x;
+    </script>
+</body>
+</html>

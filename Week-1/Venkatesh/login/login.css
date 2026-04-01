@@ -1,0 +1,88 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#1a1a1b;
+    height: 100px;
+}
+
+.login{
+    width:350px;
+    height: auto;
+    margin:100px auto;
+    /* border: solid 5px #dc1d1d; */
+    padding:40px;
+    background-color:rgba(251, 241, 245, 0.947);
+    border-radius:10px;
+    /* box-shadow:10px 10px 10px 10px rgba(11, 11, 11, 0.1); */
+    animation: login_box_glow 2s infinite;
+    
+}
+
+.login h1{
+    font-size: 40px;
+    text-align:center;
+    margin-bottom:25px;
+    color: rgb(54, 54, 229);
+}
+
+.employee_id ,
+.password{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.employee_id label,
+.password label{
+    width:110px;
+    font-weight:600;
+    color: rgb(9, 28, 231);
+}
+
+.employee_id input,
+.password input{
+    flex:1;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+.submit{
+    text-align:center;
+    margin-top:20px;
+}
+
+.submit input{
+    padding:8px 30px;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:4px;
+    cursor:pointer;
+    font-size: large;
+}
+
+.submit input:hover{
+    background:#0056b3;
+}
+.submit input:active{
+    background:#04d0bf;
+}
+.employee_id input:focus{
+    background-color: yellow;
+}
+.password input:focus{
+    background-color: yellow;
+}   
+
+@keyframes login_box_glow {
+    0% {
+        box-shadow: 5px 5px 5px rgba(237, 241, 2, 0.5);
+    }
+    50% {
+        box-shadow: 5px 5px 20px rgb(10, 7, 210);
+    }
+    100% {
+        box-shadow: 5px 5px  5px rgba(240, 8, 197, 0.5);
+    }
+    
+}

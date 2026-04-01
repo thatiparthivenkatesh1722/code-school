@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>num-word</title>
+  </head>
+  <body>
+    <input type="text" id="num" placeholder="Enter number....." />
+    <div id="result"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const words = {
+          ones: {
+            1: "One",
+            2: "Two",
+            3: "Three",
+            4: "Four",
+            5: "Five",
+            6: "Six",
+            7: "Seven",
+            8: "Eight",
+            9: "Nine",
+          },
+          untilTwenty: {
+            11: "Eleven",
+            12: "Twelve",
+            13: "Thirteen",
+            14: "Fourteen",
+            15: "Fifteen",
+            16: "Sixteen",
+            17: "Seventeen",
+            18: "Eighteen",
+            19: "Nineteen",
+          },
+          tens: {
+            10: "Ten",
+            20: "Twenty",
+            30: "Thirty",
+            40: "Forty",
+            50: "Fifty",
+            60: "Sixty",
+            70: "Seventy",
+            80: "Eighty",
+            90: "Ninety",
+          },
+        };
+
+        function numberToWord(num) {
+          if (num === 0) return "Zero";
+          else if (num < 10) {
+            return words.ones[num] || "";
+          }  else if (num < 20 && num!=10) {
+            return words.untilTwenty[num];
+          } else if (num < 100) {
+            let result = words.tens[Math.floor(num / 10) * 10];
+            if (num % 10 !== 0) {
+              result += " " + numberToWord(num % 10);
+            }
+            return result;
+          } else if (num < 1000) {
+            result = words.ones[Math.floor(num / 100)] + " Hundred";
+            if (num % 100 !== 0) {
+              result += " " + numberToWord(num % 100);
+            }
+            return result;
+          } else if (num < 100000) {
+            let result = numberToWord(Math.floor(num / 1000)) + " Thousand";
+
+            if (num % 1000 !== 0) {
+              result += " " + numberToWord(num % 1000);
+            }
+
+            return result;
+          } else if (num < 10000000) {
+            let result = numberToWord(Math.floor(num / 100000)) + " Lakh";
+
+            if (num % 100000 !== 0) {
+              result += " " + numberToWord(num % 100000);
+            }
+
+            return result;
+          } else if (num < 1000000000) {
+            let result = numberToWord(Math.floor(num / 10000000)) + " Crore";
+
+            if (num % 10000000 !== 0) {
+              result += " " + numberToWord(num % 10000000);
+            }
+
+            return result;
+          } else {
+            return "number must be under 1000000000 (Hundred Crores)";
+          }
+        }
+
+        $("#num").on("input", function () {
+          let num = parseInt($(this).val());
+
+          if (isNaN(num)) {
+            $("#result").text("");
+          } else {
+            $("#result").text(numberToWord(num));
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

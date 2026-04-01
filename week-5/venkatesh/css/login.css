@@ -1,0 +1,40 @@
+ html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        background:
+          
+          url("../images/postlogin.avif");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .quote-box {
+        font-style: italic;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #e0f7ff;
+      }
+
+      .form-control {
+        height: 55px;
+        background-color: rgba(196, 227, 244, 0.24);
+        border-radius: 10px;
+        font-size: 20px;
+      }
+
+      .form-control:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      .btn {
+        height: 55px;
+        font-size: 18px;
+        border-radius: 10px;
+      }
