@@ -1,27 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body>
-    <h1>welcome to you</h1>
+  </head>
+  <body>
+    <form id="myForm">
+      <input
+        type="text"
+        name="username"
+        minlength="3"
+        maxlength="21"
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        name="password"
+        minlength="8"
+        maxlength="21"
+        placeholder="Password"
+      />
+      <button type="submit">Submit</button>
+    </form>
+
     <script>
-       $(document).ready(function(){
-        $("h1").on({
-            mouseenter:function(){
-                $(this).css("background-color","red")
-            },
-             mouseleave:function(){
-                $(this).css("background-color","green")
-            },
-            click:function(){
-                $("h1").hide()
-            }
-        })
-       }) 
+      $("#myForm").validate({
+        rules: {
+          username: {
+            required: true,
+            minlength: 3,
+            maxlength: 21,
+          },
+          password: {
+            required: true,
+            minlength: 8,
+            maxlength: 21,
+          },
+        },
+        messages: {
+          username: {
+            required: "Enter username",
+            minlength: "Minimum 3 characters",
+            maxlength: "Maximum 21 characters",
+          },
+          password: {
+            required: "Enter password",
+            minlength: "Minimum 8 characters",
+            maxlength: "Maximum 21 characters",
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>

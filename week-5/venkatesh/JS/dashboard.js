@@ -14,11 +14,32 @@ $(document).ready(function () {
 
   let token = localStorage.getItem("token");
 
-  if (!token) {
+  if (!token || token === "undefined") {
     window.location.href = "./login.html";
+    return;
   }
 
+  $.ajax({
+    url: "https://dummyjson.com/auth/me",
+    type: "GET",
+    headers: {
+      "Authorization": "Bearer " + token
+    },
+    success: function (user) {
+      $("#username").text(user.firstName + " " + user.lastName);
 
+
+    },
+    error: function () {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    }
+  });
+
+  $(document).on("click", "#logoutBtn", function () {
+    localStorage.clear();
+    window.location.href = "./login.html";
+  });
 
   let user = JSON.parse(localStorage.getItem("user"));
 

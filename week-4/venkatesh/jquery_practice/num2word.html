@@ -52,9 +52,9 @@
             100000: "Lakh",
             1000: "Thousand",
             100: "Hundred",
-          }
+          },
         };
-        let Divisors = [10000000, 100000, 1000, 100]
+        let Divisors = [10000000, 100000, 1000, 100];
         function numberToWord(num) {
           if (num === 0) return "Zero";
           else if (num < 10) {
@@ -67,7 +67,7 @@
               result += " " + numberToWord(num % 10);
             }
             return result;
-          } else if (num >= 100 ) {
+          } else if (num >= 100) {
             console.log(num);
             for (let key of Divisors) {
               if (num >= key) {
@@ -86,7 +86,7 @@
                     numberToWord(remainder)
                   );
                 }
-return
+                return;
               }
             }
           } else {

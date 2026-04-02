@@ -1,30 +1,27 @@
 $(document).ready(function () {
-
-    $(document).on("click", ".tweet", function () {
+  $(document).on("click", ".tweet", function () {
     let userId = $(this).data("user");
     let body = $(this).data("body");
     let tags = $(this).data("tags");
     let likes = $(this).data("likes");
     let views = $(this).data("views");
 
-    
     $("#modalUserImg").attr("src", `https://i.pravatar.cc/50?img=${userId}`);
     $("#modalUserName").text(`User ${userId}`);
     $("#modalPostBody").text(body);
 
     let tagHtml = "";
-    $.each(tags, function(i, tag){
-        tagHtml += `<span class="tag">#${tag}</span> `;
+    $.each(tags, function (i, tag) {
+      tagHtml += `<span class="tag">#${tag}</span> `;
     });
 
     $("#modalTags").html(tagHtml);
     $("#modalLikes").text(`❤️ ${likes}`);
     $("#modalViews").text(`👁️ ${views}`);
 
-    
-    let modal = new bootstrap.Modal($('#postModal'));
+    let modal = new bootstrap.Modal($("#postModal"));
     modal.show();
-    });
+  });
   function toggleSidebar() {
     if ($(window).width() < 768) {
       $("#sidebar").toggleClass("show");
@@ -40,28 +37,46 @@ $(document).ready(function () {
   let token = localStorage.getItem("token");
 
   if (!token || token === "undefined") {
-    window.location.href = "login.html";
+    window.location.href = "./login.html";
+    return;
   }
 
+  $.ajax({
+    url: "https://dummyjson.com/auth/me",
+    type: "GET",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+    success: function (user) {
+      $("#username").text(user.firstName + " " + user.lastName);
+    },
+    error: function () {
+      localStorage.clear();
+      window.location.href = "./login.html";
+    },
+  });
 
+  $(document).on("click", "#logoutBtn", function () {
+    localStorage.clear();
+    window.location.href = "./login.html";
+  });
 
   $.ajax({
     url: "https://dummyjson.com/posts",
     type: "GET",
 
     success: function (res) {
-
       let posts = res.posts;
 
       $.each(posts, function (index, post) {
-
-        let tags = "", postHtml="";
+        let tags = "",
+          postHtml = "";
 
         $.each(post.tags, function (i, tag) {
           tags += `<span class="tag">#${tag}</span> `;
         });
 
-        postHtml=`
+        postHtml = `
           <div class="tweet"
             data-id="${post.id}"
             data-user="${post.userId}"
@@ -87,16 +102,12 @@ $(document).ready(function () {
 
           </div>
         `;
-        $("#feed").append(postHtml)
-
+        $("#feed").append(postHtml);
       });
-
     },
 
     error: function () {
       console.log("Failed to load posts");
-    }
-
+    },
   });
-
 });

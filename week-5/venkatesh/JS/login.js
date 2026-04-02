@@ -1,11 +1,12 @@
 $(document).ready(function () {
   let token = localStorage.getItem("token");
-  if (token) {
+  if (token && token !== "undefined") {
     window.location.href = "dashboard.html";
   }
 
   $("#username, #password").on("input", function () {
     $(this).removeClass("is-invalid");
+    $(this).addClass("is-valid");
   });
 
   $("#loginBtn").click(function () {
@@ -15,57 +16,73 @@ $(document).ready(function () {
     let userError = $("#usernameerror");
     let passError = $("#passworderror");
 
-    let isUserValid = validateField(username, userError, 4, 12, "Username");
-    let isPassValid = validateField(password, passError, 6, 16, "Password");
+    let isUserValid = validateField(username, userError, 4, 20, "Username");
+    let isPassValid = validateField(password, passError, 6, 20, "Password");
 
-    if (isUserValid && isPassValid) {
-      $("#btnSpinner").removeClass("d-none");
+    if (!isUserValid || !isPassValid) return;
 
-      $.ajax({
-        type: "POST",
-        url: "https://dummyjson.com/auth/login",
-        contentType: "application/json",
-        data: JSON.stringify({
-          username: username.val(),
-          password: password.val(),
-        }),
+    $("#btnText").text("Logging in...");
+    $("#btnSpinner").removeClass("d-none");
+    $("#loginBtn").prop("disabled", true);
 
-        success: function (res) {
-          console.log("success", res);
-          let token = res.accessToken || res.token;
-          if (token) {
-            localStorage.setItem("token", token);
-            localStorage.setItem("user", JSON.stringify(res));
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Login successful!",
-            }).then(()=>{
-              window.location.href = "dashboard.html";
+    $.ajax({
+      type: "POST",
+      url: "https://dummyjson.com/auth/login",
+      contentType: "application/json",
 
-            })
-          } else {
-            alert("token not found");
-          }
-        },
+      data: JSON.stringify({
+        username: username.val(),
+        password: password.val(),
+      }),
 
-        error: function (err) {
-          console.log("error", err);
+      success: function (res) {
+        console.log("success", res);
+
+        let token = res.accessToken || res.token;
+
+        if (token) {
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(res));
+
           Swal.fire({
-              icon: "error",
-              title: "Error",
-              text: "Invalid credentials!",
-            })
-        },
+            icon: "success",
+            title: "Welcome!",
+            text: "Login successful 🎉",
+            timer: 1500,
+            showConfirmButton: false,
+          }).then(() => {
+            window.location.href = "dashboard.html";
+          });
+        } else {
+          showError("Login failed. Try again.");
+        }
+      },
 
-        complete: function () {
-          $("#btnText").text("Login");
-          $("#btnSpinner").addClass("d-none");
-        },
-      });
-    }
+      error: function (err) {
+        console.log("error", err);
+
+        let msg = "Invalid username or password";
+
+        if (err.responseJSON && err.responseJSON.message) {
+          msg = err.responseJSON.message;
+        }
+
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: msg,
+        });
+      },
+
+      complete: function () {
+        $("#btnText").text("Login");
+        $("#btnSpinner").addClass("d-none");
+        $("#loginBtn").prop("disabled", false);
+      },
+    });
   });
 });
+
 function validateField(input, errorElement, min, max, fieldName) {
   let value = input.val().trim();
 
@@ -89,5 +106,7 @@ function validateField(input, errorElement, min, max, fieldName) {
 
   errorElement.text("");
   input.removeClass("is-invalid");
+  input.addClass("is-valid");
+
   return true;
 }

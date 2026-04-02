@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Date of Birth -->
+<div class="mb-3">
+  <label>Date of Birth</label>
+  <input type="date" id="dob" class="form-control">
+  <div id="dobError" class="error"></div>
+</div>
+<script>
+    // Get DOB value
+let dob = document.getElementById("dob").value;
+let dobError = document.getElementById("dobError");
+
+// Clear error
+dobError.innerHTML = "";
+
+// ✅ DOB Validation
+if (dob === "") {
+  dobError.innerHTML = "Date of Birth is required";
+  isValid = false;
+} else {
+  let birthDate = new Date(dob);
+  let today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let monthDiff = today.getMonth() - birthDate.getMonth();
+
+  // Adjust age if birthday not yet occurred this year
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  if (age < 18) {
+    dobError.innerHTML = "You must be at least 18 years old";
+    isValid = false;
+  }
+}
+</script>
+</body>
+</html>
