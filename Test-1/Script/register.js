@@ -25,7 +25,7 @@ $(document).ready(function () {
       isValid = false;
     } else showSuccess(lastname);
 
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
     if (!emailPattern.test(email.val())) {
       showError(email, "Invalid email");
       isValid = false;

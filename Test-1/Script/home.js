@@ -62,7 +62,7 @@ $(document).ready(function () {
 
       let latestNews = "";
 
-      for (let i = 1; i < 7; i++) {
+      for (let i = 1; i < 10; i++) {
         let article = articles[i];
         if (!article) continue;
 
