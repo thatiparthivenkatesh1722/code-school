@@ -1,243 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <style>
-    body {
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    .login-card {
-      width: 350px;
-      padding: 25px;
-      border-radius: 15px;
-      background: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+    <style>
+      body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
 
-    .error {
-      color: red;
-      font-size: 13px;
-    }
-  </style>
-</head>
+      .login-card {
+        width: 350px;
+        padding: 25px;
+        border-radius: 15px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
 
-<body>
+      .error {
+        color: red;
+        font-size: 13px;
+      }
+    </style>
+  </head>
 
-<div class="login-card">
-  <h3 class="text-center mb-3">Login</h3>
+  <body>
+    <div class="login-card">
+      <h3 class="text-center mb-3">Login</h3>
 
-  <form id="loginForm">
+      <form id="loginForm">
+        <!-- Username OR Email -->
+        <div class="mb-3">
+          <label for="userInput">Username or Email</label>
+          <input
+            type="text"
+            id="userInput"
+            class="form-control"
+            placeholder="Enter Username or Email"
+          />
+          <div id="userError" class="error"></div>
+        </div>
 
-    <!-- Username OR Email -->
-    <div class="mb-3">
-      <label>Username or Email</label>
-      <input type="text" id="userInput" class="form-control">
-      <div id="userError" class="error"></div>
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter your Password"
+          />
+          <div id="passwordError" class="error"></div>
+        </div>
+        <!-- Date of Birth -->
+        <div class="mb-3">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" class="form-control" />
+          <div id="dobError" class="error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
     </div>
 
-    <!-- Password -->
-    <div class="mb-3">
-      <label>Password</label>
-      <input type="password" id="password" class="form-control">
-      <div id="passwordError" class="error"></div>
-    </div>
-    <!-- Date of Birth -->
-<div class="mb-3">
-  <label>Date of Birth</label>
-  <input type="date" id="dob" class="form-control">
-  <div id="dobError" class="error"></div>
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#loginForm").submit(function (e) {
+          e.preventDefault();
 
-    <button type="submit" class="btn btn-primary w-100">Login</button>
+          let userInput = $("#userInput").val().trim();
+          let password = $("#password").val().trim();
+          let dob = $("#dob").val();
 
-  </form>
-</div>
+          let userError = $("#userError");
+          let passwordError = $("#passwordError");
+          let dobError = $("#dobError");
 
-<!-- <script>
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+          // Clear errors
+          userError.html("");
+          passwordError.html("");
+          dobError.html("");
 
-  let userInput = document.getElementById("userInput").value.trim();
-  let password = document.getElementById("password").value.trim();
+          let isValid = true;
 
-  let userError = document.getElementById("userError");
-  let passwordError = document.getElementById("passwordError");
+          // Patterns
+          let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+          let usernamePattern = /^[A-Za-z0-9]{4,}$/;
+          let passwordPattern =
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&*]).{6,}$/;
 
-  // Clear errors
-  userError.innerHTML = "";
-  passwordError.innerHTML = "";
+          // ✅ Username OR Email Validation
+          if (userInput === "") {
+            userError.html("Username or Email is required");
+            isValid = false;
+          } else if (userInput.includes("@")) {
+            // Email
+            if (!emailPattern.test(userInput)) {
+              userError.html("Enter valid email (example@gmail.com)");
+              isValid = false;
+            }
+          } else {
+            // Username
+            if (!usernamePattern.test(userInput)) {
+              userError.html(
+                "Username must be at least 4 characters (letters & numbers only)",
+              );
+              isValid = false;
+            }
+          }
 
-  let isValid = true;
+          // ✅ Password Validation
+          if (password === "") {
+            passwordError.html("Password is required");
+            isValid = false;
+          } else if (!passwordPattern.test(password)) {
+            passwordError.html(
+              "Password must contain uppercase, lowercase, number & special character",
+            );
+            isValid = false;
+          }
 
-  // Patterns
-  let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
-  let usernamePattern = /^[A-Za-z0-9]{4,}$/;
-  let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&*]).{6,}$/;
+          // ✅ DOB Validation
+          if (dob === "") {
+            dobError.html("Date of Birth is required");
+            isValid = false;
+          } else {
+            let birthDate = new Date(dob);
+            let today = new Date();
 
-  // ✅ Username OR Email Validation
-  if (userInput === "") {
-    userError.innerHTML = "Username or Email is required";
-    isValid = false;
-  } 
-  else if (userInput.includes("@")) {
-    // Treat as Email
-    if (!userInput.match(emailPattern)) {
-      userError.innerHTML = "Enter valid email (example@gmail.com)";
-      isValid = false;
-    }
-  } 
-  else {
-    // Treat as Username
-    if (!userInput.match(usernamePattern)) {
-      userError.innerHTML = "Username must be at least 4 characters (letters & numbers only)";
-      isValid = false;
-    }
-  }
+            let age = today.getFullYear() - birthDate.getFullYear();
+            let monthDiff = today.getMonth() - birthDate.getMonth();
 
-  // ✅ Password Validation
-  if (password === "") {
-    passwordError.innerHTML = "Password is required";
-    isValid = false;
-  } else if (!password.match(passwordPattern)) {
-    passwordError.innerHTML = "Password must contain uppercase, lowercase, number & special character";
-    isValid = false;
-  }
+            // Adjust age
+            if (
+              monthDiff < 0 ||
+              (monthDiff === 0 && today.getDate() < birthDate.getDate())
+            ) {
+              age--;
+            }
 
-  // ✅ Final
-  if (isValid) {
-    alert("Login Successful ✅");
-  }
+            if (age < 18) {
+              dobError.html("You must be at least 18 years old");
+              isValid = false;
+            }
+          }
 
-  // Get DOB value
-let dob = document.getElementById("dob").value;
-let dobError = document.getElementById("dobError");
-
-// Clear error
-dobError.innerHTML = "";
-
-// ✅ DOB Validation
-if (dob === "") {
-  dobError.innerHTML = "Date of Birth is required";
-  isValid = false;
-} else {
-  let birthDate = new Date(dob);
-  let today = new Date();
-
-  let age = today.getFullYear() - birthDate.getFullYear();
-  let monthDiff = today.getMonth() - birthDate.getMonth();
-
-  // Adjust age if birthday not yet occurred this year
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  if (age < 18) {
-    dobError.innerHTML = "You must be at least 18 years old";
-    isValid = false;
-  }
-}
-  
-});
-</script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-$(document).ready(function () {
-
-  $("#loginForm").submit(function (e) {
-    e.preventDefault();
-
-    let userInput = $("#userInput").val().trim();
-    let password = $("#password").val().trim();
-    let dob = $("#dob").val();
-
-    let userError = $("#userError");
-    let passwordError = $("#passwordError");
-    let dobError = $("#dobError");
-
-    // Clear errors
-    userError.html("");
-    passwordError.html("");
-    dobError.html("");
-
-    let isValid = true;
-
-    // Patterns
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
-    let usernamePattern = /^[A-Za-z0-9]{4,}$/;
-    let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&*]).{6,}$/;
-
-    // ✅ Username OR Email Validation
-    if (userInput === "") {
-      userError.html("Username or Email is required");
-      isValid = false;
-    } 
-    else if (userInput.includes("@")) {
-      // Email
-      if (!emailPattern.test(userInput)) {
-        userError.html("Enter valid email (example@gmail.com)");
-        isValid = false;
-      }
-    } 
-    else {
-      // Username
-      if (!usernamePattern.test(userInput)) {
-        userError.html("Username must be at least 4 characters (letters & numbers only)");
-        isValid = false;
-      }
-    }
-
-    // ✅ Password Validation
-    if (password === "") {
-      passwordError.html("Password is required");
-      isValid = false;
-    } 
-    else if (!passwordPattern.test(password)) {
-      passwordError.html("Password must contain uppercase, lowercase, number & special character");
-      isValid = false;
-    }
-
-    // ✅ DOB Validation
-    if (dob === "") {
-      dobError.html("Date of Birth is required");
-      isValid = false;
-    } 
-    else {
-      let birthDate = new Date(dob);
-      let today = new Date();
-
-      let age = today.getFullYear() - birthDate.getFullYear();
-      let monthDiff = today.getMonth() - birthDate.getMonth();
-
-      // Adjust age
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-
-      if (age < 18) {
-        dobError.html("You must be at least 18 years old");
-        isValid = false;
-      }
-    }
-
-    // ✅ Final
-    if (isValid) {
-      alert("Login Successful ✅");
-    }
-
-  });
-
-});
-</script>
-</body>
+          // ✅ Final
+          if (isValid) {
+            alert("Login Successful ✅");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

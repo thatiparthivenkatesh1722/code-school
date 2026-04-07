@@ -1,0 +1,101 @@
+.navbar-brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: red !important;
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: black !important;
+}
+
+.right-section i {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.custom-box {
+  margin: auto;
+  background-color: rgb(241, 239, 239);
+}
+
+.welcome-text {
+  color: rgb(109, 108, 108);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.main-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: red;
+  font-weight: 700;
+}
+
+.custom-box:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.card h6 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 32px;
+}
+#News img:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+footer {
+  background-color: #f8f9fa;
+}
+footer h6 {
+  color: black;
+}
+
+footer ul li {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #555;
+}
+
+footer ul li:hover {
+  color: red;
+}
+
+footer i {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+footer i:hover {
+  color: black !important;
+}
+
+footer h3 {
+  cursor: pointer;
+}
+
+footer p:hover {
+  color: #000;
+}
+
+footer .mt-4 {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  text-align: center;
+  color: #777;
+}

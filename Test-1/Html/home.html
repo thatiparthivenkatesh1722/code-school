@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/21/21601.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../Style/home.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white border-bottom-0 px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Bulletin</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center gap-3">
+            <li class="nav-item">|</li>
+            <li class="nav-item"><a class="nav-link" href="#">Stories</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Creator</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Subscribe</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3 right-section">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-pencil-square fs-6"></i>
+              <span class="text-dark fw-bold">Write</span>
+            </div>
+
+            <i class="bi bi-bell fw-bold"></i>
+
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm"
+              id="loginBtn"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid my-3 ">
+      <div class="rounded-4 p-4 text-center shadow-sm custom-box">
+        <h5 class="welcome-text mb-2">WELCOME TO BULLETIN</h5>
+
+        <p class="main-text">
+          Craft narratives ✍🏻 that ignite
+          <span class="highlight">inspiration 💡</span>, <br />
+          <span class="highlight">knowledge 📚</span>, and
+          <span class="highlight">entertainment 🎬</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row mb-5" id="News"></div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="fw-bold">Latest News</h3>
+        <a href="#" class="text-danger text-decoration-none">See all →</a>
+      </div>
+
+      <div class="row g-4" id="latestNews"></div>
+    </div>
+
+    <div class="container-fluid px-3 px-md-5 my-5">
+      <div
+        class="p-4 p-md-5 rounded-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-4"
+        style="background-color: rgba(219, 218, 218, 0.696)"
+      >
+        <div class="text-center text-md-start">
+          <p class="text-secondary small" style="letter-spacing: 3px">
+            GET FIRST UPDATE
+          </p>
+
+          <p class="fs-5 fw-bold mb-0">
+            Get the news in front line by <br />
+            <span class="text-danger">subscribe</span> ✍️ Our latest updates
+          </p>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-2 w-50 w-md-auto">
+          <input
+            type="email"
+            class="form-control fw-bold rounded-3"
+            placeholder="Your email"
+          />
+
+          <button class="btn btn-danger fw-bold rounded-3 px-4">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h3 class="text-danger fw-bold">Buletin</h3>
+            <p>
+              Craft narratives that ignite inspiration,<br />
+              knowledge, and entertainment.
+            </p>
+
+            <div class="d-flex gap-3">
+              <i class="bi bi-facebook text-danger"></i>
+              <i class="bi bi-linkedin text-danger"></i>
+              <i class="bi bi-twitter text-danger"></i>
+              <i class="bi bi-instagram text-danger"></i>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-3">
+                <h6 class="fw-bold">Business</h6>
+                <ul class="list-unstyled">
+                  <li>Startup</li>
+                  <li>Employee</li>
+                  <li>Success</li>
+                  <li>Videos</li>
+                  <li>Markets</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">Technology</h6>
+                <ul class="list-unstyled">
+                  <li>Innovate</li>
+                  <li>Gadget</li>
+                  <li>Innovative Cities</li>
+                  <li>Upstarts</li>
+                  <li>Future Tech</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">Travel</h6>
+                <ul class="list-unstyled">
+                  <li>Destinations</li>
+                  <li>Food & Drink</li>
+                  <li>Stay</li>
+                  <li>News</li>
+                  <li>Videos</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">Sports</h6>
+                <ul class="list-unstyled">
+                  <li>Football</li>
+                  <li>Tennis</li>
+                  <li>Golf</li>
+                  <li>Motosports</li>
+                  <li>Esports</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-3">
+                <h6 class="fw-bold">Entertainment</h6>
+                <ul class="list-unstyled">
+                  <li>Movies</li>
+                  <li>Artist</li>
+                  <li>Television</li>
+                  <li>Influencer</li>
+                  <li>Viral</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">Features</h6>
+                <ul class="list-unstyled">
+                  <li>As Equals</li>
+                  <li>Call to Earth</li>
+                  <li>Freedom Project</li>
+                  <li>Inside Asia</li>
+                  <li>2 Degrees</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">Weather</h6>
+                <ul class="list-unstyled">
+                  <li>Climate</li>
+                  <li>Storm Tracker</li>
+                  <li>Wildfire Tracker</li>
+                  <li>Earthquake</li>
+                  <li>Video</li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="fw-bold">More</h6>
+                <ul class="list-unstyled">
+                  <li>Design</li>
+                  <li>Mentorship</li>
+                  <li>Investment</li>
+                  <li>Work for Buletin</li>
+                  <li>Support Us</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4">Copyright © 2023 Buletin.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Script/home.js"></script>
+  </body>
+</html>

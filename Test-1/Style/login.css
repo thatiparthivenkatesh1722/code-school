@@ -1,0 +1,25 @@
+body {
+  background: url(../images/login.avif);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-card {
+  width: 350px;
+  padding: 25px;
+  border-radius: 15px;
+  background: linear-gradient(to right, #fe554f, #00f2fe);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0.7;
+  color: black !important;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+}

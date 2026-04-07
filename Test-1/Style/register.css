@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("../images/register.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 15px;
+
+  background: rgba(198, 213, 244, 0.452);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.form-box:hover {
+  transform: translateY(-5px);
+}
+
+.form-control:focus {
+  border-color: red;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.btn-danger:hover {
+  background-color: darkred;
+}
+
+@media (max-width: 576px) {
+  .form-box {
+    margin: 15px;
+    padding: 20px;
+  }
+}
